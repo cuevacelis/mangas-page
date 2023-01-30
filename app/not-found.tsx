@@ -1,26 +1,25 @@
-import imgGifTravolta from '@assets/gifs/confused-travolta.gif'
-import Layout from '@layouts/Layout'
-import { Button } from '@nextui-org/react'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
+'use client'
 
-function Custom404() {
+import imgGifTravolta from '@assets/gifs/confused-travolta.gif'
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+
+export default function NotFound() {
   const router = useRouter()
   return (
-    <Layout>
+    <>
       <section className="flex flex-col mt-8 items-center justify-center">
         <Image src={imgGifTravolta} alt="Manga 404" />
         <h1 className="text-center">🤖404 Not Found💩</h1>
         <div className="flex flex-col items-center">
-          <Button shadow color="gradient" auto onClick={() => router.push('/')}>
+          <button color="gradient" onClick={() => router.push('/')}>
             Go to Home
-          </Button>
-          <Button light color="secondary" auto onClick={() => router.back()}>
+          </button>
+          <button color="secondary" onClick={() => router.back()}>
             Ir a página anterior
-          </Button>
+          </button>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }
-export default Custom404
